@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Display Hotels for a destination">
+    <meta name="author" content="Meihui">
+    <title>Welcome to Ascenda Loyalty</title>
+
+    <link rel="stylesheet" type="text/css" href="calenplugin/css/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <!-- <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- <link rel="navbar" type="text/css" href="assets/css/navbar.css"/> -->
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <!--start Header-->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="index.html" class="navbar-brand font-weight-bold wow fadeInDown">
+                    <h2>
+                    Ascenda Loyalty
+                  </h2>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsenavbar">
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+                    <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown nav-left">
+                    <div class="wow fadeInDown nav-img trip" data-wow-delay="70ms">
+                        <!-- user account page -->
+                        <a href="" class="nav-link dropdown-toggle scroll active" data-toggle="dropdown">
+                            <img src="assets/images/inner/user.png" alt="user">My Account
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="" class="btn-register" data-toggle="modal" data-target="#myModal1">Sign In</a>
+                            <br>
+                            <a href="" class="btn-register" data-toggle="modal" data-target="#myModal">Register</a>
+                            <a class="dropdown-item" href="">Booking History</a>
+                            <a class="dropdown-item" href="">Help</a>
+
+                        </div>
+                    </div>
+                </li>
+                </ul>
+        </div>
+        </nav>
+        </div>
+        <div class="clearfix"></div>
+    </header>
+    <div class="container progressBar">
+        <div class="row">
+            <div class="col-12 prog-One">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end header-->
+    <section class="loader">
+        <section id="section-hotel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12 butonDiv">
+                        <button type="button" class="hotel-toggle"><i class="fa fa-play" aria-hidden="true"></i> Modify Search</button>
+                        <div class="row hiddenDiv-one" style="display: none;">
+                            <form id="hotelForm">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 col-12">
+                                             <label>Where*</label>
+                                            <div class="form-group">
+                                               <input type="text" placeholder="Enter Locality, Landmark, City or Hotel" id="selectCity" name="selectCity" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+                                            <div class="form-group">
+                                                <label>Check In*</label>
+                                                <div class="input-group margin-bottom-sm">
+                                                    <input type="text" value="10/24/1984" id="picker6" name="picker" class="form-control" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fa fa-calendar fa-fw"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+                                            <div class="form-group">
+                                                <label>Check Out*</label>
+                                                <div class="input-group margin-bottom-sm">
+                                                    <input type="text" value="10/24/1984" id="picker7" name="picker" class="form-control" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fa fa-calendar fa-fw"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Travellers</label>
+                                                <select id="travelRoom" name="travelRoom" class="custom-select form-control">
+                                                    <option value="">Select</option>
+                                                    <option value="1">1 Room, 1 Adults</option>
+                                                    <option value="2">1 Room, 2 Adults</option>
+                                                    <option value="3">2 Room, 4 Adults</option>
+                                                    <option value="4">2 Room, 8 Adults</option>
+                                                    <option value="5">More Travellers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="buttonDiv float-right">
+                                        <input type="submit" name="submit" value="Search Hotels" class="submitButton">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <div class="col-lg-8 col-md-8 col-12 Info">
+                        <!-- modify this with searching input -->
+                        <h3>Tue, 11 Feb - Fri, 21 Feb | 1 room, 2 adults</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--section-->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <!--left portion start-->
+                    <div class="col-md-12 col-lg-3 col-xl-3 col-xs-12 mx-auto mt-3 ">
+                        <div class="filter-head text-left">
+                            <h6>4 of 4 Hotels</h6>
+                        </div>
+                        <div class="filter-area">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Filter by Hotel Name">
+                            </div>
+                        </div>
+                        <div class="filter-area">
+                            <h6>Price</h6>
+                            <ul>
+                                <li>
+                                    <input type="checkbox">Below Rs 2,000(0)</li>
+                                <li>
+                                    <input type="checkbox">Rs 2,000 - Rs 4,000(0)</li>
+                                <li>
+                                    <input type="checkbox">Rs 4,000 - Rs 6,000(0)</li>
+                                <li>
+                                    <input type="checkbox">Above Rs 4,000(1)</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--left portion end-->
+                    <!--right portion start-->
+                    <div class="col-md-12 col-lg-9 col-xl-9 col-sm-12 mx-auto mt-3 hotel-listing">
+                        <!-- START: HOTEL LIST VIEW -->
+                        <div class="row">
+                            <div class="col wow zoomIn">
+                                <div class="hotel-list-view">
+                                    <div class="row hotel-search-div">
+                                        <div class="col-lg-9 col-md-9 col-12">
+                                            <div class="input-group">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i><span>Search Address:</span>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Search for Location, Hotel Address in Bangalore, Karnataka">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row hotel-name">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+                                            <div class="banner1">
+                                                <div id="hambet-banner" class="carousel slide" data-ride="carousel" data-interval="9000">
+                                                    <!-- Indicators -->
+                                                    <ul class="carousel-indicators">
+                                                        <li data-target="#hambet-banner" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#hambet-banner" data-slide-to="1"></li>
+                                                        <li data-target="#hambet-banner" data-slide-to="2"></li>
+                                                    </ul>
+                                                    <!-- The slideshow -->
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="assets/images/hotel/hotel.jpg" alt="Single Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/hotel1.jpg" alt="Single Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/hotel2.jpg" alt="Single Room" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-5 col-xl-5 col-sm-12  tourDiv">
+                                            <!-- replace with the target hotel name -->
+                                            <h4>A Hotel</h4> 
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <!-- replace this with the search result -->
+                                            <h5> S$200 -  S$300</h5>
+                                            <span>More info</span>
+                                        </div>
+                                        <div class="col-md-12 col-lg-3 col-xl-3 col-sm-12 ratingDiv">
+                                             
+                                            <div class="bttn">
+                                                <!-- direct to room selection link(replace with) -->
+                                                <a href="">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- END: CRUISE LIST VIEW -->
+                        <!-- START: HOTEL LIST VIEW -->
+                        <div class="row hotel-name">
+                            <div class="col wow zoomIn">
+                                <div class="cruise-list-view">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+                                            <div class="banner1">
+                                                <div id="solmar-banner" class="carousel slide" data-ride="carousel" data-interval="9000">
+                                                    <!-- Indicators -->
+                                                    <ul class="carousel-indicators">
+                                                        <li data-target="#solmar-banner" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#solmar-banner" data-slide-to="1"></li>
+                                                        <li data-target="#solmar-banner" data-slide-to="2"></li>
+                                                    </ul>
+                                                    <!-- The slideshow -->
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="assets/images/hotel/sun-hotel.jpg" alt="Double Room " />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/sun-hotel1.jpg" alt="Double Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/sun-hotel2.jpg" alt="Double Room" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-5 col-xl-5 col-sm-12  tourDiv">
+                                            <!-- replace with the target hotel name -->
+                                            <h4>B Hotel</h4>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            
+                                            <!-- replace this with the search result -->
+                                            <h5>S$185 - S$200</h5>
+                                            <span>Location info</span>
+                                        </div>
+                                        <div class="col-md-12 col-lg-3 col-xl-3 col-sm-12 ratingDiv">
+                                             
+                                            <div class="bttn">
+                                                <!-- direct to room selection link(replace with) -->
+                                                <a href="">View Details</a>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- END: CRUISE LIST VIEW -->
+                        <div class="row hotel-name">
+                            <div class="col wow zoomIn">
+                                <div class="cruise-list-view">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+                                            <div class="banner1">
+                                                <div id="hotel-banner" class="carousel slide" data-ride="carousel" data-interval="9000">
+                                                    <!-- Indicators -->
+                                                    <ul class="carousel-indicators">
+                                                        <li data-target="#hotel-banner" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#hotel-banner" data-slide-to="1"></li>
+                                                        <li data-target="#hotel-banner" data-slide-to="2"></li>
+                                                    </ul>
+                                                    <!-- The slideshow -->
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="assets/images/hotel/cantara-hotel.jpg" alt="Double Room " />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/cantara-hotel1.jpg" alt="Double Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/cantara-hotel2.jpg" alt="Double Room" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-5 col-xl-5 col-sm-12  tourDiv">
+                                            <!-- replace with the target hotel name -->
+                                            <h4>C Hotel</h4>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <!-- replace this with the search result -->
+                                            <h5>S$250 - S$500</h5>
+                                            <span>More info</span>
+                                        </div>
+                                        <div class="col-md-12 col-lg-3 col-xl-3 col-sm-12 ratingDiv">
+                                             
+                                            <div class="bttn">
+                                                <!-- direct to room selection link(replace with) -->
+                                                <a href="">View Details</a>
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row hotel-name">
+                            <div class="col wow zoomIn">
+                                <div class="cruise-list-view">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+                                            <div class="banner1">
+                                                <div id="hotel-one-banner" class="carousel slide" data-ride="carousel" data-interval="9000">
+                                                    <!-- Indicators -->
+                                                    <ul class="carousel-indicators">
+                                                        <li data-target="#hotel-one-banner" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#hotel-one-banner" data-slide-to="1"></li>
+                                                        <li data-target="#hotel-one-banner" data-slide-to="2"></li>
+                                                    </ul>
+                                                    <!-- The slideshow -->
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="assets/images/hotel/Grand-hotel.jpg" alt="Double Room " />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/grand-hotel1.jpg" alt="Double Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/grand-hotel2.jpg" alt="Double Room" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-5 col-xl-5 col-sm-12  tourDiv">
+                                            <!-- replace with the target hotel name -->
+                                            <h4>D Hotel</h4>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <!-- replace this with the search result -->
+                                            <h5>S$160 - S$320</h5>
+                                            <span>More info</span>
+                                        </div>
+                                        <div class="col-md-12 col-lg-3 col-xl-3 col-sm-12 ratingDiv">
+                                             
+                                            <div class="bttn">
+                                                <a href="select-room.html">View Details</a>
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- START: HOTEL LIST VIEW -->
+                        <div class="row hotel-name">
+                            <div class="col wow zoomIn">
+                                <div class="cruise-list-view">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+                                            <div class="banner1">
+                                                <div id="hotel-two-banner" class="carousel slide" data-ride="carousel" data-interval="9000">
+                                                    <!-- Indicators -->
+                                                    <ul class="carousel-indicators">
+                                                        <li data-target="#hotel-two-banner" data-slide-to="0" class="active"></li>
+                                                        <li data-target="#hotel-two-banner" data-slide-to="1"></li>
+                                                        <li data-target="#hotel-two-banner" data-slide-to="2"></li>
+                                                    </ul>
+                                                    <!-- The slideshow -->
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="assets/images/hotel/mlesi-hotel.jpg" alt="Double Room " />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/mlesi-hotel1.jpg" alt="Double Room" />
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="assets/images/hotel/mlesi-hotel2.jpg" alt="Double Room" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-5 col-xl-5 col-sm-12  tourDiv">
+                                            <!-- replace with the target hotel name -->
+                                            <h4>E Hotel</h4>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <!-- replace this with the search result -->
+                                            <h5>S$300 - S$500</h5>
+                                            <span>More info</span>
+                                        </div>
+                                        <div class="col-md-12 col-lg-3 col-xl-3 col-sm-12 ratingDiv">
+                                             
+                                            <div class="bttn">
+                                                <!-- direct to room selection link(replace with) -->
+                                                <a href="">View Details</a>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- END: CRUISE LIST VIEW -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>

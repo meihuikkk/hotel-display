@@ -1,0 +1,393 @@
+
+@font-face {
+  font-family: 'Montserrat'; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(assets/css/font/montserrate.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: 'Roboto'; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(assets/css/font/roboto.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Courier New', Courier, monospace;
+}
+ 
+p {
+  font-family: Roboto, sans-serif;
+}.round {
+  position: relative;
+  right: 30px;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height:33px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width:33px;
+}
+
+.round label:after {
+  border: 4px solid #66bb6a;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 8px;
+  left: 8px;
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  transform: rotate(-45deg);
+  width: 16px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:'Courier New', Courier, monospace 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, serif;
+}
+
+a,
+i,
+b,
+li {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+#header {
+  padding: 0px;
+  background-color: #22285A;
+  color:white;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #22285A;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #161a3d;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.curr-img { 
+  width:9px;
+}
+
+.curr1-img {
+  width: 16px;
+}
+
+.nav-left {
+  margin-bottom:30px;
+  padding:10px;
+  color:white;
+
+
+}
+
+
+.signIn {
+  text-align: center!important;
+}
+
+
+
+.button {
+  border-radius: 6px;
+  margin-bottom: 20px;
+  background-color: #22285A;
+  padding: 8px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+
+ input[type=checkbox] {
+    width:24px!important;
+    height: 30px!important;
+    margin-right: 8px;
+  }
+  .deal-tab{
+    border: 1px solid #ccc!important;
+    border-bottom: none;
+  }
+
+
+.custom-select {
+  font-size: 12px!important;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn {
+  margin-bottom: 10px;
+  margin-right: 30px;
+  font-size: 14px!important;
+  font-weight: 700!important;
+}
+
+
+.bttn {
+  margin-right: 20px;
+  margin-top: 60px;
+  float: right;
+  background-color: #22285A;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.bttn a {
+  color: #fff;
+  font-weight: 700;
+}
+
+
+
+
+#section-one {
+  height: auto;
+}
+
+#myTab {
+  padding-top: 30px;
+}
+
+#myTab a {
+  padding: 16px;
+}
+
+#myTab i {
+  font-size: 1.5rem;
+  padding-right: 20px;
+}
+
+#myTabContent h3 {
+  padding-top: 30px;
+  font-weight: 700;
+  font-size: 10rem;
+  color: white;
+}
+
+#myTabContent p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.hotelSearch {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hiddenDiv1 {
+  padding-left: 20px;
+}
+
+
+.navbar-brand i {
+  padding: 0 16px;
+  color: #666;
+  border-left: 1px solid #ccc;
+  font-size: 20px;
+}
+
+#section-hotel {
+  background-color: #F1F1F1;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+#section-hotel h3 {
+  font-size: 20px;
+  padding-top: 6px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, serif;
+  text-shadow: #666;
+}
+
+#section-hotel p {
+  color: #ccc;
+  font-size: 12px;
+}
+
+#section-hotel button {
+  color: #fff;
+  margin-top: 14px;
+  padding: 6px;
+  background-color: #22285A;
+  border-radius: 6px;
+}
+
+.butonDiv i {
+  color: #fff;
+  font-size: 11px;
+  padding-right: 8px;
+}
+
+.filter-head h6 {
+  font-size: 0.9rem!important;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+.filter-area ul {
+  list-style: none;
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
+.filter-area h6 {
+  padding-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter-area li {
+  font-size: 12px;
+  color: #666;
+  padding: 5px 0px;
+}
+
+.filter-area li input {
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.filter-area {
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+.hotel-listing {
+  margin-bottom: 30px;
+  box-shadow: 2px 2px #ccc;
+  border: 1px solid #ccc;
+}
+.hotel-listing:hover {
+  box-shadow: 2px 2px #22285A;
+}
+
+.hotel-search-div {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.hotel-search-div span {
+  padding: 7px;
+  font-weight: 700;
+}
+
+.fa-map-marker {
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+
+
+.Info {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.dropdown-nav{
+
+}
+
+
+
+
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1300px) {}
